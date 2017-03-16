@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+{%if result %}
+<p style="color: red">{{result}}</p>
+{% endif %}
+<table border="1">
+    <thead>
+    <tr>
+        <td> username </td>
+        <td> name_cn </td>
+        <td> email </td>
+        <td> mobile </td>
+        <td> 操作 </td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if users %}
+    {% for user in users %}
+    <tr>
+         <td>{{user.username}}</td>
+         <td>{{user.name_cn}}</td>
+         <td>{{user.email}}</td>
+         <td>{{user.mobile}}</td>
+         <td>
+             <a href="/update?id={{user.id}}"><input type="button" name="update" data-id="{{user.id}}" value="更新"></a>
+             <a href="/delete?id={{user.id}}"><input type="button" name="delete" data-id="{{user.id}}" value='删除'></a>
+         </td>
+    </tr>
+      {%endfor%}
+     {%endif%}
+    </tbody>
+</table>
+</body>
+</html>

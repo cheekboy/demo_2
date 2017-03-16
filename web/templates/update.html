@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{%if result %}
+<p style="color: red">{{result}}</p>
+{% endif %}
+{%if user%}
+<form id="updateForm" action="/update" method="post" accept-charset="UTF-8">
+  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+      <input type="hidden" id ='id' name="id" value="{{user.id}}"><!--update need id-->
+        <tr >
+            <td width="20%" >用户名</td>
+            <td ><input id = "username" type="text" name="username" value="{{user.username}}" size="20" ></td></tr>
+        <tr >
+            <td width="20%" >中文名字</td>
+            <td ><input id="name_cn" type="text" name="name_cn" size="20" value="{{user.name_cn}}" ></td></tr>
+        <tr >
+            <td width="20%" >手机号</td>
+            <td ><input id ="mobile" type="text" name="mobile" size="20" value="{{user.mobile}}"></td></tr>
+        <tr >
+            <td width="20%" >电子邮箱</td>
+            <td ><input id="email" type="text" name="email" size="20" value="{{user.email}}" ></td>
+        </tr>
+        <tr >
+            <td width="20%" >角色</td>
+            <td >
+                <select name="role" id="role">
+                    <option value="admin">管理员</option>
+                    <option value="user">普通用户</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" >状态</td>
+            <td>
+                <select name="status" id="status">
+                    <option value="0">正常</option>
+                    <option value="1">锁定</option>
+                </select>
+            <td>
+        </tr>
+        <tr >
+            <td width="20%" >密码</td>
+            <td ><input id="password" type="text" name="password" size="20" value="{{user.password}}"></td>
+        </tr>
+      <tr>
+          <td><input type="submit" value="提交">
+     <a href="/userlist">返回主页>></a><p/></td>
+      </tr>
+
+</form>
+{%endif%}
+</body>
+</html>
