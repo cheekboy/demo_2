@@ -1,0 +1,14 @@
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '用户名',
+  `name_cn` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '姓名',
+  `password` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '密码',
+  `email` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '邮箱',
+  `mobile` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '手机',
+  `status` tinyint(1) unsigned NOT NULL COMMENT '状态',
+  `role` varchar(10) COLLATE utf8mb4_bin NOT NULL DEFAULT '1' COMMENT '1:sa;2:java;3:test',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `last_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
